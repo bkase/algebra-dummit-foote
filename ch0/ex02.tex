@@ -1,0 +1,129 @@
+\documentclass[12pt]{article}
+\setlength{\parindent}{0in}
+
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath,amsthm,amssymb,amsfonts,braket}
+
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newtheorem{lemma}{Lemma}
+
+\begin{document}
+
+\title{Exercises for Dummit and Foote Algebra 0.2}
+\author{Brandon Kase}
+\maketitle
+
+\section*{Exercises}
+
+\subsection*{1}
+
+Computation
+
+\subsection*{2}
+
+Prove that if the integer $k$ divides the integers $a$ and $b$ then $k$ divides $as + bt$ for every pair of integers $s$ and $t$.
+
+\begin{align*}
+  k \mid a &\implies a = xk \\
+        &\implies as = xks \\
+  k \mid b &\implies b = yk \\
+        &\implies bt = ykt \\
+  as + bt &= xks + ykt \tag*{add the two equations}\\
+  as + bt &= k*(xs + yt)
+\end{align*}
+
+So $k \mid as + bt$ if we take $r = xs + yt$, since $kr = as + bt$ \qed{}
+
+\subsection*{3}
+
+Prove that if $n$ is composite then there are integers $a$ and $b$ such that $n \mid ab$ but $n \nmid a$ and $n \nmid b$.
+
+By the Fundamental Theorem of Arithmetic. All numbers can be written in the form:
+
+\begin{align*}
+  n = p_1^{\alpha_1}p_2^{\alpha_2}\ldots p_s^{\alpha_s}
+\end{align*}
+
+Since $n$ is composite, there will be at least two prime factors, let's say $p_a$ and $p_b$, and some other factor $q > 0$:
+
+\begin{align*}
+  n &= p_a * p_b * q \\
+    &= \underbrace{p_a}_{a} * \overbrace{p_b * q}^{b} \\
+    &= ab
+\end{align*}
+
+So $n \mid ab$, but $n \nmid a$ and $n \nmid b$ as they are some of the factors of $n$ but not all of the factors $> 1$. \qed{}
+
+\subsection*{4}
+
+Let $a$, $b$ and $N$ be fixed integers with $a \neq 0$ and $b \neq 0$ and let $d = (a, b)$ be the greatest common divisor of $a$ and $b$. Suppose $x_0$ and $y_0$ are particular solutions to $ax + by = N$.
+(i.e., $ax_0 + by_0 = N$). Prove for any integer $t$ that the integers
+
+\begin{align*}
+  x &= x_0 + \frac{b}{d}t \\
+  y &= y_0 - \frac{a}{d}t
+\end{align*}
+
+are also solutions to $ax + by = N$.
+
+The following manipulation of terms is entirely $\iff$s so we proceed from the goal down to the assumption.
+
+\begin{align*}
+  ax + by &= N \\
+  a(x_0 + \frac{b}{d}t) + b(y_0 - \frac{a}{d}t) &= N \\
+  ax_0 + \frac{ab}{d}t + by_0 - \frac{ab}{d}t &= N \\
+  ax_0 + by_0 &= N
+\end{align*} \qed{}
+
+\subsection*{5}
+
+Computation
+
+\subsection*{6}
+
+Prove the Well Ordering Property of $\Z$ by induction and prove the minimal element is unique.
+
+Want to show: If $A$ is any non empty subset of $\Z^+$, $\exists m \in A$ s.t. $m \leq a$, $\forall a \in A$ ($m$ is called a minimal element of $A$).
+
+Order the elements in $A$ by their magnitudes, smallest first. Assuming $|A| = n$:
+
+\begin{align*}
+  A = \langle a_0, a_1, \ldots, a_n \rangle
+\end{align*}
+
+Want to show $\exists m \in A$, s.t. $\forall a_i \in A$, $m \leq a$. \\
+
+Take $m = a_0$
+
+We proceed by induction over $0 <= i <= n$.
+
+Base case: $i = 0$ \\
+$m = a_0 \leq a_0$ \qed{}
+
+IH\@: Assume $m \leq a_i$ \\
+Want to show $m \leq a_{i+1}$ \\
+
+Since we ordered the elements in $A$ by their magnitudes, we know $a_i \leq a_{i+1}$.
+
+\begin{align*}
+  m &\leq a_i \tag*{by IH} \\
+  m &\leq a_i \leq a_{i+1} \tag*{as seen above} \\
+  m &\leq a_{i+1}
+\end{align*} \qed{}
+
+\subsection*{7}
+
+If $p$ is a prime prove that there do not exist nonzero integers $a$ and $b$ s.t. $a^2 = pb^2$ (i.e., $\sqrt{p}$ is not a rational number).
+
+AFSOC $\sqrt{p}$ is rational \\
+
+\begin{align*}
+  \sqrt{p} &= \frac{a}{b} \tag*{by definition of rational} \\
+  p &= \frac{a^2}{b^2} \\
+  pb^2 &= a^2
+\end{align*}
+
+TODO
+
+\end{document}
